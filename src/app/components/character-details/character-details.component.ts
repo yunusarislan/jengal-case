@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-character-details',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-details.component.scss']
 })
 export class CharacterDetailsComponent implements OnInit {
-
-  constructor() { }
+  characterId: string | null = null;
+  characterData: any = {}; // Değişiklik: any[] yerine any
+  constructor(
+    private apiService: ApiService,
+    private acRouter: ActivatedRoute,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
+    const paramValue = this.acRouter.snapshot.paramMap.get('id');
+    this.characterId = paramValue ? atob(paramValue) : null;
+    console.log(typeof this.characterId);
+    this.getCharacter();
   }
 
+  getCharacter(): void {
+    const parseId = Number(this.characterId);
+    this.apiService.getCharacter(parseId).subscribe({
+      next: (data: any) => {
+        this.characterData = data;
+        console.log(this.characterData);
+      },
+    });
+  }
 }

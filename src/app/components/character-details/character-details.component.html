@@ -1,1 +1,23 @@
-<p>character-details works!</p>
+<app-header></app-header>
+
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card flex-row">
+          <img class="card-img-left rounded" [src]="characterData.image">
+          <div class="card-body ml-1">
+            <h1 class="card-title">{{ characterData.name}}</h1>
+            <hr>
+            <div class="character-info">
+                <p *ngIf="characterData.status !== 'unknown'">Status: <span>{{ characterData.status}}</span></p>
+                <p *ngIf="characterData.species !== 'unknown'" >Species: <span >{{ characterData.species}}</span></p>
+                <p *ngIf="characterData.gender !== 'unknown'" >Gender: <span>{{ characterData.gender}}</span></p>
+                <p *ngIf="characterData.location.name !== 'unknown'">Location: <span>{{ characterData.location.name}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
