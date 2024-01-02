@@ -14,10 +14,6 @@ export class CharacterListComponent implements OnInit {
   currentPage = 1;
   totalPages: number = 1;
   maxPagesToShow = 5;
-  filteredData: any[] = [];
-  searchKeyword: string = '';
-  selectedProperty: string = ''; // Kullanıcının seçtiği özellik
-  filterValue: string = ''; // Kullanıcının seçtiği değer
   selectedName: string = '';
   selectedSpecies: string = '';
   selectedStatus: string = '';

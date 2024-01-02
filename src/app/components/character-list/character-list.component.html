@@ -1,4 +1,5 @@
-  <div class="filter-bar row align-items-center justify-content-between mt-4 p-0">
+  <!-- Filter Bar -->
+<div class="filter-bar row align-items-center justify-content-between mt-4 p-0">
     <div class="col">
       <h6 style="margin-block: auto;">Filter Characters</h6>
     </div>
@@ -29,7 +30,8 @@
       <button type="button" class="btn btn-danger" (click)="clearFilters(nameInput, typeInput, statusSelect, genderSelect)">Clear</button>
     </div>
   </div>
-    
+
+   <!-- Data -->  
 <div class="row mt-4" *ngIf="charactersData.length > 0">
   <div class="col-3 mb-3" *ngFor="let character of charactersData">
     <div class="card" (click)="goCharacterDetail(character.id)">
@@ -48,6 +50,7 @@
   </div>
 </div>
 
+  <!-- Pagination -->  
 <nav aria-label="Page navigation example" *ngIf="charactersData.length > 0">
   <ul class="pagination pagination-dark justify-content-center">
     <li class="page-item" [class.disabled]="currentPage === 1">
