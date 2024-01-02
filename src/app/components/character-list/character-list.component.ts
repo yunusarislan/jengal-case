@@ -84,8 +84,6 @@ export class CharacterListComponent implements OnInit {
   }
 
   searchCharacters(name: string, species: string, status: string, gender: string): void {
-    console.log("Buton Tıklandı")
-    console.log(status)
     this.charactersData = this.filterSortService.filterByStatus(this.charactersData, name, species, status, gender);
   }
 

@@ -9,11 +9,6 @@ export class FilterSortService {
   constructor() {}
 
   filterByStatus(data: any[], name: string, species: string, status: string, gender: string): any[] {
-    console.log("service");
-    console.log(name);
-    console.log(species);
-    console.log(status);
-    console.log(gender);
     return data.filter(item =>
       (!name || (item.name && item.name.toLowerCase().includes(name.toLowerCase()))) &&
       (!species || (item.species && item.species.toLowerCase().includes(species.toLowerCase()))) &&

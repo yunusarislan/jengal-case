@@ -20,7 +20,6 @@ export class CharacterDetailsComponent implements OnInit {
   ngOnInit(): void {
     const paramValue = this.acRouter.snapshot.paramMap.get('id');
     this.characterId = paramValue ? atob(paramValue) : null;
-    console.log(typeof this.characterId);
     this.getCharacter();
   }
 
@@ -29,7 +28,6 @@ export class CharacterDetailsComponent implements OnInit {
     this.apiService.getCharacter(parseId).subscribe({
       next: (data: any) => {
         this.characterData = data;
-        console.log(this.characterData);
       },
     });
   }
